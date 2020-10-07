@@ -1,0 +1,19 @@
+version: '3.0'
+services:
+   missions:
+      image: 209086008/missions_app
+      ports:
+         - "5001:4000"
+      networks:
+         - application-network
+      environment:
+         TEAMS_API: "teams:80"
+   teams:
+      image: 209086008/team_app
+      ports:
+        - "80:80"
+      networks:
+        - application-network
+networks:
+   application-network:
+
