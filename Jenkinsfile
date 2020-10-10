@@ -45,7 +45,7 @@ def build(){
     docker build -t 209086008/team_app .
     cd ..
     cd missions
-    docker build -t 209086008 missions_app .
+    docker build -t 209086008/missions_app .
     docker login --username 209086008 --password ${PASS}
     docker push 209086008/missions_app
     docker push 209086008/team_app
