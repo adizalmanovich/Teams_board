@@ -16,7 +16,7 @@ withCredentials([string(credentialsId: 'dockerhub', variable: 'PASS')]) {
             docker-compose up -d
             cd checking
             pip3 install requests
-            test=\$(python3 workerstest.py http://localhost:80)
+            test=\$(python3 test.py http://localhost:80)
             if [ \$test = "True" ]; then
                 echo "Success"
                 docker-compose down
