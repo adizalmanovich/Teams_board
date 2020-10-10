@@ -15,7 +15,7 @@ withCredentials([string(credentialsId: 'dockerhub', variable: 'PASS')]) {
             docker pull 209086008/team_app
             docker-compose up -d
             cd checking
-            pip3 install requests
+            pip install requests
             test=\$(python3 test.py http://localhost:80)
             if [ \$test = "True" ]; then
                 echo "Success"
