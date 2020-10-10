@@ -10,7 +10,7 @@ withCredentials([string(credentialsId: 'dockerhub', variable: 'PASS')]) {
 
     stage("Test"){
             sh """
-            docker login --username ${dockerhub} --password  ${PASS}
+            docker login --username 209086008 --password-stdin  ${PASS}
             docker pull 209086008/missions_app
             docker pull 209086008/team_app
             docker-compose up -d
@@ -46,7 +46,7 @@ def build(){
     cd ..
     cd missions
     docker build -t 209086008/missions_app .
-    docker login --username ${dockerhub} --password  ${PASS}
+    docker login --username 209086008 --password-stdin  ${PASS}
     docker push 209086008/missions_app
     docker push 209086008/team_app
     """
