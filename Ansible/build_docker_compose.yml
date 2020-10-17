@@ -1,0 +1,22 @@
+---
+- hosts: all 
+  become: true 
+
+  tasks:
+  - name: stop current runnig containers
+    command: docker-compose down
+    ignore_errors: yes
+
+  - name: remove local images
+    command: docker rmi 209086008/missions_app 209086008/team_app
+    ignore_errors: yes
+
+  - name: pull first image from DockerHub
+    command: docker pull 209086008/missions_app:latest
+
+  - name: pull second image from DockerHub
+    command: docker pull 209086008/team_app:latest
+
+  - name: docker compose up
+    command: docker-compose up -d 
+ 
