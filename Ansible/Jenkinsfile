@@ -8,8 +8,7 @@ stage("Build"){
 
     stage("Test"){
             sh """
-            ansiblePlaybook credentialsId: 'connect', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'Ansible/dev.inv', playbook: 'Ansible/build_docker_compose.yml'
-            cd checking
+ansiblePlaybook credentialsId: 'connect', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'Teams_board/Ansible/dev.inv', playbook: 'Teams_board/Ansible/build_docker_compose.yml'            cd checking
             pip install requests
             test=\$(python3 test.py http://localhost:80)
             if [ \$test = "True" ]; then
